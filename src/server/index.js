@@ -19,6 +19,8 @@ app.post("/api/list", lc.addItem);
 //put
 app.put("/api/list", lc.editItem);
 
+app.delete("/api/list/:index", lc.deleteItem);
+
 app.listen(SERVER_PORT, () => {
   console.log(`His server... It's over ${SERVER_PORT}`);
 });

@@ -15,5 +15,11 @@ module.exports = {
     const { index, newItem } = req.body;
     list[index] = newItem;
     res.status(200).send(list);
+  },
+
+  deleteItem(req, res) {
+    const { index } = req.params;
+    list.splice(index, 1);
+    res.status(200).send(list);
   }
 };

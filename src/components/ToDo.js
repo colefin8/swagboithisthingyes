@@ -41,12 +41,27 @@ class ToDo extends Component {
     });
   };
 
+  deleteFromList = index => {
+    axios.delete(`/api/list/${index}`).then(res => {
+      this.setState({
+        list: res.data
+      });
+    });
+  };
+
   render() {
     console.log(this.state);
     return (
       <div>
         {this.state.list.map((element, index) => {
-          return <ListItem element={element} index={index} updateState={this.updateState}/>;
+          return (
+            <ListItem
+              element={element}
+              index={index}
+              updateState={this.updateState}
+              deleteItem={this.deleteFromList}
+            />
+          );
         })}
         <input
           placeholder="literally anything works here boi"
